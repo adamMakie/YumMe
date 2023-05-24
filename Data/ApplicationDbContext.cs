@@ -12,6 +12,5 @@ namespace YumMe.Data
 
         }
         public DbSet<Dish> Dishes { get; set; }
-        public DbSet<Restaurant> Restaurants { get; set; }
     }
 }
