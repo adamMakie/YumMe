@@ -7,7 +7,16 @@
     <UserSecretsId>aspnet-YumMe-e459f7cf-cae9-4220-a6ab-262fb54d8877</UserSecretsId>
   </PropertyGroup>
 
-  <ItemGroup>
+    <ItemGroup>
+        <UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
+        <UpToDateCheckBuilt Include="tailwind.config.js" Set="Css" />
+    </ItemGroup>
+
+    <Target Name="Tailwind" BeforeTargets="Build">
+        <Exec Command="npm run css:build"/>
+    </Target>
+
+    <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.0" />

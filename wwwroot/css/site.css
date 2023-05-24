@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+
+/* Din egen CSS-kod här */
+
+
+/*html {
   font-size: 14px;
 }
 
@@ -24,4 +28,4 @@ html {
 body {
   margin-bottom: 60px;
 }
-
+*/

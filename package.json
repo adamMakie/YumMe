@@ -2,25 +2,22 @@
   "name": "yumme",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "tailwind.config.js",
   "scripts": {
     "css:build": "npx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/css/styles.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamMakie/YumMe.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "tailwindcss": "^3.3.2",
-    "module.exports" "=",
-    {
-      "content": [
-        "./Pages/**/*.cshtml",
-        "./Views/**/*.cshtml"
-      ],
-      "theme": {
-        "extend": {}
-      },
-      "plugins": []
-    }
+  "bugs": {
+    "url": "https://github.com/adamMakie/YumMe/issues"
+  },
+  "homepage": "https://github.com/adamMakie/YumMe#readme",
+  "dependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }
