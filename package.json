@@ -1,0 +1,26 @@
+{
+  "name": "yumme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css:build": "npx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/css/styles.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2",
+    "module.exports" "=",
+    {
+      "content": [
+        "./Pages/**/*.cshtml",
+        "./Views/**/*.cshtml"
+      ],
+      "theme": {
+        "extend": {}
+      },
+      "plugins": []
+    }
+  }
+}
