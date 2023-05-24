@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using YumMe.Models.Domain;
 
 namespace YumMe.Data
 {
@@ -8,6 +9,8 @@ namespace YumMe.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
+        public DbSet<Dish> Dishes { get; set; }
     }
 }
