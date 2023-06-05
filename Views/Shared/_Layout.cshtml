@@ -3,28 +3,161 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - YumMe</title>
+    <title>@ViewData["Title"]  YumMe</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/YumMe.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/YumMeTest.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        
-    </header>
-    <div class="flex-col">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <link rel="stylesheet" href="~/css/Tailwind.css" asp-append-version="true" />
 
-    <footer class="border-top footer text-muted">
-        <div class="flex-col">
-            &copy; 2023 - YumMe - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+</head>
+<body class="bg-babyBlue">
+    <header class="text-blue-600">
+        <div class="container mx-auto py-1 px-1 flex justify-between items-center">
+            <div class="flex items-center mx-auto">
+                <img src="img/Logo.png" alt="Logo" class="h-16">
+            </div>
+            <div class="flex items-center justify-end s">
+                <partial name="_loginpartial" />
+            </div>
+        </div>
+    </header>
+    <main role="main" class="pb-1">
+        @RenderBody()
+    </main>
+    @*<aside class=" compact-nav fixed group overflow-hidden left-0 top-0 z-10 h-screen w-[calc(3.73rem)] border-r border-gray-300/40 bg-white dark:bg-gray-900 dark:border-gray-700 hover:w-56 hover:shadow-2xl">
+        <div class=" h-screen flex flex-col justify-between">
+            <div>
+                <div class="h-16 border-b border-gray-300/40 dark:border-gray-700 flex items-center">
+                    <!-- Svg ikonen -->
+                    <a href="" class="block w-max px-1.5">
+
+                        <!-- YumME loggan -->
+                        <img src="https://tailus.io/images/logo.svg" class="w-32" alt="">
+
+                    </a>
+                </div>
+                <div class="mt-6">
+                    <ul class="px-1 -ml-px space-y-4 font-medium tracking-wide">
+                        <li class="w-max space-y-4 group-hover:w-full">
+                            <a href="" class="block py-3 w-[52px] rounded-full bg-sky-500 group-hover:w-full">
+                                <div class="w-max flex items-center px-3 gap-4">
+
+                                    <!-- användaren profilvild -->
+                                    <!-- <img  class="w-10 h-10 rounded-full"src="" alt=""> -->
+
+                                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none">
+                                        <path d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z" class="fill-current text-cyan-400 dark:fill-slate-600"></path>
+                                        <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z" class="fill-current text-cyan-200 group-hover:text-cyan-300"></path>
+                                        <path d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z" class="fill-current group-hover:text-sky-300"></path>
+                                    </svg>
+
+                                    <h6 class="text-xl text-blue-600">Profil</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="w-max">
+                            <a href="#">
+                                <div class="flex items-center gap-5 px-4 py-3">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" fill-rule="evenodd" d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z" clip-rule="evenodd"></path>
+                                        <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"></path>
+                                    </svg>
+
+                                    <span class="text-gray-600 text-blue-900">Kategorier</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="w-max">
+                            <a href="">
+                                <div class="flex items-center gap-5 px-4 py-3">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path class="fill-current text-gray-600 group-hover:text-cyan-600" fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"></path>
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
+                                    </svg>
+
+                                    <span class="text-gray-600 text-blue-600">Favoriter</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="w-max">
+                            <a href="">
+                                <div class="flex items-center gap-5 px-4 py-3">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                                    </svg>
+
+                                    <span class="text-gray-600 text-blue-600">Användardata</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="w-max">
+                            <a href="">
+                                <div class="flex items-center gap-5 px-4 py-3">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
+                                        <path class="fill-current text-gray-600 group-hover:text-cyan-600" fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"></path>
+                                    </svg>
+
+                                    <span class="text-gray-600 text-blue-600">Finans</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- till border under finans ikonen -->
+            <div class="py-4 px-2 border-t border-gray-300/40 dark:border-gray-700">
+                <ul class="px-1 -ml-px space-y-4 font-medium tracking-wide">
+
+                    <li class="w-max">
+                        <a href="">
+                            <div class="flex items-center gap-5 py-2">
+
+                                <svg class="w-8 h-8 ml-1.5 rounded-full" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:fill-cyan-600" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                                </svg>
+
+                                <span class="text-gray-600 text-blue-600">Inställningar</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>*@
+    <footer class="bg-black-950 text-white py-4">
+        <div class="container mx-auto px-8">
+            <div class="flex flex-wrap items-center justify-between">
+                <div class="flex items-center">
+                    <nav class="mr-4">
+                        <ul class="flex ">
+                            <li class="mr-4"><a href="#">Home</a></li>
+                            <li class="mr-4"><a href="#">About</a></li>
+                            <li class=" mr-4"><a href="#">Services</a></li>
+                        </ul>
+                    </nav>
+                    <nav class="mr-4">
+                        <ul class="flex">
+                            <li class="mr-4"><a href="#">Privacy Policy</a></li>
+                            <li class="mr-4"><a href="#">FAQs</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <span class="text-sm">&copy; 2023 YumMe. All rights reserved.</span>
+                </div>
+            </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
