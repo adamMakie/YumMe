@@ -1,26 +1,39 @@
 ﻿@using Microsoft.AspNetCore.Identity
+
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
+<nav class="flex items-center justify-between bg-gray-200 py-1 px-2">
+    <div class="flex items-center">
+        <!-- Navbar items -->
+    </div>
 
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
-</ul>
+    <div class="flex items-center">
+        <div class="ml-4">
+            <ul class="list-none space-x-2">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="inline-block">
+                        <a class="nav-link text-cyan-400" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                    </li>
+                    <li class="inline-block">
+                        <form class="inline-block" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                            <button type="submit" class="nav-link btn btn-link text-black">Logout</button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <ul class="list-none flex space-x-4 gap-4">
+                        <li>
+                            <a class="nav-link text-cyan-400" asp-area="Identity" asp-page="/Account/Register"> Login</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-cyan-400" asp-area="Identity" asp-page="/Account/Login">Register</a>
+                        </li>
+                    </ul>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
+
