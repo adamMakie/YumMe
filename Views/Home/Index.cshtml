@@ -1,17 +1,20 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+@model YumMe.Models.Domain.Dish
 
+<section class="bg-gray-100 py-8" id="backgroundSection" style="background-image: url('images/indiskDosa.jpg'); background-size: cover; background-position: center; height: 85vh;">
+    <div class="container mx-auto px-6 relative">
+        <div class="image-text " style="position: absolute; top: 58%; left: 50%; transform: translate(-50%, -50%); width: fit-content; padding: 3px 8px; background-color: none; color: #333; border: none; box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.3); text-align: center;">
+            <h2 class="text-2xl font-serif mb-4 items-center justify-center text-center text-white">
+                <em><span style="font-size: larger; font-weight: bold; font-style: italic;">Burgare i alla lägen!</span></em>
+            </h2>
+            <p style="font-size: larger; font-weight: bold; font-style: italic;"><em class="text-red">Kycklingburgare. Salta och peppra kycklingfärs. Forma hamburgare och stek eller grilla tills de är helt genomstekta. Servera med rostat bröd med fullkorn, kålsallad (se nedan), mosad avokado, tomat och rödlök. Här hittar du en variant på kycklingburgare med avokadosås.</em></p>
+        </div>
+        <div style="position: relative; height: 86vh;">
+            <button type="button" onclick="changeImage()" style="position: absolute; bottom: 17%; left: 50%; transform: translateX(-50%); width: fit-content; padding: 10px 20px;  background-color: #0a0a0a; color: #333; border: none; box-shadow:  1px 2px 2px 2px rgba(0, 0, 0, 0.3); ">
+                New Suggestion
+            </button>
+            <a href="https://localhost:5000/Details.cshtml" style="position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%); width: fit-content; padding: 10px 20px; background-color: #0a0a0a; color: #333; border: none; box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.3); text-decoration: none;">
+                View Details
+            </a>
 
-
-<div class="flex justify-center items-center">
-    <h1 class="">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <div class="bg-blue-500 text-white p-4 justify-center">En exempeltext</div>
-</div>
-
-
-
-<div>
-    <div class="bg-blue-500 text-white p-4 justify-center">En exempeltext</div>
-</div>
+        </div>
+    </div>
