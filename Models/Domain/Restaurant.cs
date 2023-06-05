@@ -7,4 +7,8 @@ public class Restaurant
     public string Description { get; set; }
     public string cuisine { get; set; }
     public string Location { get; set; }
+
+    public int DishId { get; set; }
+
+    public Dish Dish { get; set; }
 }
