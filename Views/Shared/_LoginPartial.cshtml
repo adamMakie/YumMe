@@ -2,6 +2,8 @@
 
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
+
+
 <nav class="flex items-center justify-between bg-gray-200 py-1 px-2">
     <div class="flex items-center">
         <!-- Navbar items -->
@@ -14,8 +16,7 @@
                 {
                     <li class="inline-block">
                         <a class="nav-link text-cyan-400" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-                    </li>
-                    <li class="inline-block">
+                    </li>                  <li class="inline-block">
                         <form class="inline-block" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
                             <button type="submit" class="nav-link btn btn-link text-black">Logout</button>
                         </form>
@@ -25,10 +26,10 @@
                 {
                     <ul class="list-none flex space-x-4 gap-4">
                         <li>
-                            <a class="nav-link text-cyan-400" asp-area="Identity" asp-page="/Account/Register"> Login</a>
+                            <a class="nav-link text-cyan-400" asp-area="Identity" asp-page="/Account/Register"> Register</a>
                         </li>
                         <li>
-                            <a class="nav-link text-cyan-400" asp-area="Identity" asp-page="/Account/Login">Register</a>
+                            <a class="nav-link text-cyan-400" asp-area="Identity" asp-page="/Account/Login">Login</a>
                         </li>
                     </ul>
                 }
