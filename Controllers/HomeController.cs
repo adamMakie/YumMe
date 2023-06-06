@@ -1,32 +1,35 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using YumMe.Data;
 using YumMe.Models;
 
 namespace YumMe.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            this.context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            Random random = new Random();
+            var randomId = random.Next(1, 6);
+            var dish = context.Dishes
+                .FirstOrDefault(d => d.Id == randomId);
+
+            var viewModel = new DishViewModel
+            { 
+                Id = dish.Id,
+                Name = dish.Name,
+                Cuisine = dish.Cuisine,
+                FoodImage = dish.FoodImage
+            };
+            return View(viewModel);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

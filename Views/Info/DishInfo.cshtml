@@ -1,5 +1,6 @@
 ﻿@model DishInfoViewModel
 
+
 <div class="flex">
 	<div class="flex-auto">
 		<h1 class="text-3xl text-center pt-5 font-bold">Restaurant</h1>
@@ -19,16 +20,7 @@
 					<div class="pl-6">
 						<span class="font-bold text-4xl">@restaurant.Name</span>
 						<span class="block text-gray-500 font-medium text-sm">@restaurant.Cuisine</span>
-						<div class="flex items-center mt-2">
-							<span class="text-yellow-400 text-lg mr-1">&#9733;</span>
-							<span class="text-yellow-400 text-lg mr-1">&#9733;</span>
-							<span class="text-yellow-400 text-lg mr-1">&#9733;</span>
-							<span class="text-yellow-400 text-lg mr-1">&#9733;</span>
-							<span class="text-yellow-400 text-lg">&#9734;</span>
-							<span class="ml-2 text-sm">4.2/5</span>
-						</div>
 						<span class="absolute bottom-1 right-2 text-white-500 pr-2 pb-1">¤ 0.2 km</span>
-						<span class="absolute top-1 left-2 text-black font-bold text-2xl pl-2 pb-1">$$$</span>
 					</div>
 				</a>
 			}
@@ -44,9 +36,7 @@
 						<div class="pl-6">
 							<span class="font-bold text-4xl">@recipe.Title</span>
 							<span class="block text-gray-500 font-medium text-sm">Linked Site Name</span>
-							<div class="flex items-center mt-2">
-								<span class="text-red-500 text-1xl">&#127798;</span>
-							</div>
+							
 						</div>
 					</a>
 				}

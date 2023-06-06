@@ -4,7 +4,11 @@ module.exports = {
         './Views/**/*.cshtml'
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                babyblue: 'rgb(204 229 255)'
+            }
+        },
     },
     plugins: [],
 }
