@@ -1,20 +1,50 @@
-@model YumMe.Models.Domain.Dish
+@model DishViewModel
 
-<section class="bg-gray-100 py-8" id="backgroundSection" style="background-image: url('images/indiskDosa.jpg'); background-size: cover; background-position: center; height: 85vh;">
-    <div class="container mx-auto px-6 relative">
-        <div class="image-text " style="position: absolute; top: 58%; left: 50%; transform: translate(-50%, -50%); width: fit-content; padding: 3px 8px; background-color: none; color: #333; border: none; box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.3); text-align: center;">
-            <h2 class="text-2xl font-serif mb-4 items-center justify-center text-center text-white">
-                <em><span style="font-size: larger; font-weight: bold; font-style: italic;">Burgare i alla lägen!</span></em>
-            </h2>
-            <p style="font-size: larger; font-weight: bold; font-style: italic;"><em class="text-red">Kycklingburgare. Salta och peppra kycklingfärs. Forma hamburgare och stek eller grilla tills de är helt genomstekta. Servera med rostat bröd med fullkorn, kålsallad (se nedan), mosad avokado, tomat och rödlök. Här hittar du en variant på kycklingburgare med avokadosås.</em></p>
+
+<body class="overflow-hidden">
+    <section class="bg-gray-100 py-8 h-50 bg-cover bg-center" id="backgroundSection" style="background-image: url('@Model.FoodImage');">
+        <div class="container mx-auto px-6 h-screen flex flex-col items-center justify-center relative">
+            <div class="image-text bg-gray-900  text-center border  border-gray-300 shadow-md p-4 absolute bottom-60 mb-4">
+                <h2 class="text-2xl font-serif mb-4 text-center text-white">
+                    <em><span class="text-lg font-bold italic">@Model.Name</span></em>
+                </h2>
+                <p class="text-lg font-bold italic text-white">
+                    <em>@Model.Cuisine</em>
+                </p>
+            </div>
+
+            <div class="absolute bottom-20 mb-10">
+                <div class="mb-6">
+                    <button type="button" onclick="handleButtonClick()" class="px-6 py-4 bg-gray-900 text-white border border-gray-300 shadow-md">
+                        New Suggestion
+                    </button>
+                </div>
+                <div>
+                    <a href="info/dishinfo/@Model.Id" class="px-10 py-4 bg-gray-900 text-white border border-gray-300 shadow-md no-underline">
+                        View Details
+                    </a>
+                </div>
+            </div>
         </div>
-        <div style="position: relative; height: 86vh;">
-            <button type="button" onclick="changeImage()" style="position: absolute; bottom: 17%; left: 50%; transform: translateX(-50%); width: fit-content; padding: 10px 20px;  background-color: #0a0a0a; color: #333; border: none; box-shadow:  1px 2px 2px 2px rgba(0, 0, 0, 0.3); ">
-                New Suggestion
-            </button>
-            <a href="https://localhost:5000/Details.cshtml" style="position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%); width: fit-content; padding: 10px 20px; background-color: #0a0a0a; color: #333; border: none; box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.3); text-decoration: none;">
-                View Details
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
+</body>
+<script>
+
+    function handleButtonClick() {
+
+        if (localStorage.getItem('clickCount')) {
+            var clickCount = parseInt(localStorage.getItem('clickCount'));
+            if (clickCount < 3) {
+                clickCount++;
+                localStorage.setItem('clickCount', clickCount);
+                location.reload();
+            } else {
+                alert('You have reached the maximum limit of clicks.');
+            }
+        } else {
+            localStorage.setItem('clickCount', 1);
+            location.reload();
+        }
+    }
+
+</script>
