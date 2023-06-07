@@ -16,11 +16,7 @@
                 {
                     <li class="inline-block">
                         <a class="nav-link text-cyan-400" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-                    </li>                  <li class="inline-block">
-                        <form class="inline-block" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                            <button type="submit" class="nav-link btn btn-link text-black">Logout</button>
-                        </form>
-                    </li>
+                    </li>                  
                 }
                 else
                 {

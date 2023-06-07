@@ -9,13 +9,15 @@
 </head>
 <body class="bg-babyblue overflow-hidden">
     <header class="text-blue-600">
-        <div class=" py-1 px-1 items-center justify-end">
+        <div class="py-1 px-1 items-center justify-end">
             <div class="mx-0 flex">
                 <partial name="_SidebarMenu" />
-            </div>
-            <div class=" flex items-center mx-auto">
-               <h1 class=" font-bold text-3xl text-blue-900">YumMe</h1>
-            </div>
+            </div> 
+				<div class="flex items-center mx-auto">
+				<a href="@Url.Action("Index", "Home")">
+					<h1 class="text-3xl font-bold">YumMe</h1>
+				  </a>
+				</div>
             <div class="flex items-center mr-4">
                 <partial name="_loginpartial" />
             </div>
