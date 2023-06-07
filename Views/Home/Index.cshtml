@@ -29,7 +29,11 @@
 					else
 					{
 						<button type="button" onclick="handleButtonClick()" class="px-6 py-4 bg-gray-900 text-white border border-gray-300 shadow-md">
-							New Suggestion
+							New Suggestion 
+                            <div>
+                                <span id="clicksLeft"></span>
+                            </div>
+                            
 						</button>
 					}
                 </div>
@@ -47,7 +51,7 @@
     function handleButtonClick() {
 
         if (localStorage.getItem('clickCount')) {
-            var clickCount = parseInt(localStorage.getItem('clickCount'));
+            let clickCount = parseInt(localStorage.getItem('clickCount'));
             if (clickCount < 3) {
                 clickCount++;
                 localStorage.setItem('clickCount', clickCount);
@@ -60,5 +64,12 @@
             location.reload();
         }
     }
+
+    function updateClicksLeft() {
+        let clickCount = parseInt(localStorage.getItem('clickCount')) || 0;
+        let clicksLeft = 3 - clickCount;
+        document.getElementById('clicksLeft').innerHTML = clicksLeft; 
+    } 
+        updateClicksLeft();
 
 </script>
