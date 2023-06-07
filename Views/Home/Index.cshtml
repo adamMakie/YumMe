@@ -1,4 +1,9 @@
 @model DishViewModel
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 
 
 <body class="overflow-hidden">
@@ -15,9 +20,18 @@
 
             <div class="absolute bottom-20 mb-10">
                 <div class="mb-6">
-                    <button type="button" onclick="handleButtonClick()" class="px-6 py-4 bg-gray-900 text-white border border-gray-300 shadow-md">
-                        New Suggestion
-                    </button>
+					@if (SignInManager.IsSignedIn(User))
+					{
+						<button type="button" onclick="location.reload();" class="px-6 py-4 bg-gray-900 text-white border border-gray-300 shadow-md">
+							New Suggestion
+						</button>
+					}
+					else
+					{
+						<button type="button" onclick="handleButtonClick()" class="px-6 py-4 bg-gray-900 text-white border border-gray-300 shadow-md">
+							New Suggestion
+						</button>
+					}
                 </div>
                 <div>
                     <a href="info/dishinfo/@Model.Id" class="px-10 py-4 bg-gray-900 text-white border border-gray-300 shadow-md no-underline">
