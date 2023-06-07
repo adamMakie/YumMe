@@ -71,7 +71,9 @@
         </div>
         <div class="mt-auto">
             <div class="pt-6">
-                <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" href="#">Logga ut</a>
+				<form class="inline-block" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+					<button type="submit" class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl">Logout</button>
+				</form>
             </div>
 
         </div>
