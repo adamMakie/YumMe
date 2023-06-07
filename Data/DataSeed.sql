@@ -1,21 +1,21 @@
 -- Dishes
 INSERT INTO Dishes (Name, Cuisine, FoodImage, Spicy)
 VALUES
-    ('Biff Timjan', 'Swedish', 'images/BiffTimjan.jpg', 'Medium'),
-    ('DragonRoll', 'Japanese', 'images/Dragonroll.jpg', 'Mild'),
-    ('Hamburga', 'American', 'images/hamburgare.jpg', 'Non-Spicy'),
-     ('Butter Chiken', 'India', 'images/indisk.jpg', 'Non-Spicy'),
-      ('Chiken Basili', 'Thai', 'images/Khaphrokai.jpg', 'Non-Spicy'),
-       ('Lamm BBQ', 'American', 'images/Lamm.jpg', 'Non-Spicy'),
+    ('Steak', 'Swedish', 'images/BiffTimjan.jpg', 'Medium'),
+    ('Dragon Roll', 'Japanese', 'images/Dragonroll.jpg', 'Mild'),
+    ('Hamburger', 'American', 'images/hamburgare.jpg', 'Non-Spicy'),
+     ('Butter Chicken', 'Indian', 'images/indisk.jpg', 'Non-Spicy'),
+      ('Chicken Basili', 'Thai', 'images/Khaphrokai.jpg', 'Non-Spicy'),
+       ('Lamb BBQ', 'American', 'images/Lamm.jpg', 'Non-Spicy'),
         ('Sushi Mix', 'Japanese', 'images/Mix.jpg', 'Non-Spicy'),
-         ('PhadThai', 'Thai', 'images/PhadThai.jpg', 'Non-Spicy'),
+         ('Phad Thai', 'Thai', 'images/PhadThai.jpg', 'Non-Spicy'),
           ('Pokebowl', 'Japanese', 'images/Pokebowl.jpg', 'Non-Spicy'),
            ('Shrimp With Rice', 'Asian', 'images/räkormedris.jpg', 'Non-Spicy'),
             ('Salmon Aspagrus', 'Swedish', 'images/Salmon.jpg', 'Non-Spicy'),
              ('Sashimi', 'Japanese', 'images/Sashimi.jpg', 'Non-Spicy'),
-              ('SeaFood Pasta', 'Spanish', 'images/SeafoodPasta.jpg', 'Non-Spicy'),
-               ('Shrimp Pasta', 'Italia', 'images/shrimpPasta.jpg', 'Non-Spicy'),
-                ('Veganburger', 'American', 'images/veganburger.jpg', 'Non-Spicy');
+              ('Sea Food Pasta', 'Spanish', 'images/SeafoodPasta.jpg', 'Non-Spicy'),
+               ('Shrimp Pasta', 'Italian', 'images/shrimpPasta.jpg', 'Non-Spicy'),
+                ('Vegan burger', 'American', 'images/veganburger.jpg', 'Non-Spicy');
 
 
 -- Restaurants

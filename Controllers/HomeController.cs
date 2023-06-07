@@ -17,7 +17,7 @@ namespace YumMe.Controllers
         public IActionResult Index()
         {
             Random random = new Random();
-            var randomId = random.Next(1, 6);
+            var randomId = random.Next(1, 15);
             var dish = context.Dishes
                 .FirstOrDefault(d => d.Id == randomId);
 
