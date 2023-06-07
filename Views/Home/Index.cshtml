@@ -34,11 +34,7 @@
 
         if (localStorage.getItem('clickCount')) {
             var clickCount = parseInt(localStorage.getItem('clickCount'));
-            var isRegistered = getRegistrationStatus(); // Call a function to retrieve the user's registration status
-
-            var maxClicks = isRegistered ? Infinity : 5; // Set the maximum number of clicks based on registration status
-
-            if (clickCount < maxClicks) {
+            if (clickCount < 3) {
                 clickCount++;
                 localStorage.setItem('clickCount', clickCount);
                 location.reload();
@@ -51,15 +47,4 @@
         }
     }
 
-    function getRegistrationStatus() {
-        // Replace this implementation with your actual registration status check
-        // Example implementation:
-        // Assume you have a variable called `isUserRegistered` which represents the registration status
-
-        var isUserRegistered = true; // Set this variable based on the user's registration status
-
-        return isUserRegistered;
-    }
-
 </script>
-
