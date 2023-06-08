@@ -9,7 +9,7 @@
 <body class="overflow-hidden">
     <section class="bg-gray-100 py-8 h-50 bg-cover bg-center" id="backgroundSection" style="background-image: url('@Model.FoodImage');">
         <div class="container mx-auto px-6 h-screen flex flex-col items-center justify-center relative">
-            <div class="image-text bg-gray-900  text-center border  border-gray-300 shadow-md p-4 absolute bottom-60 mb-4">
+            <div class="image-text bg-gray-900  text-center border  border-gray-300 shadow-md p-4 absolute bottom-60 mb-8">
                 <h2 class="text-2xl font-serif mb-4 text-center text-white">
                     <em><span class="text-lg font-bold italic">@Model.Name</span></em>
                 </h2>
@@ -37,7 +37,7 @@
 						</button>
 					}
                 </div>
-                <div>
+                <div class="mb-4">
                     <a href="info/dishinfo/@Model.Id" class="px-10 py-4 bg-gray-900 text-white border border-gray-300 shadow-md no-underline">
                         View Details
                     </a>
