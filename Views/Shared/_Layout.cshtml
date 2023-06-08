@@ -8,17 +8,17 @@
     <script src="~/js/site.js"></script>
 </head>
 <body class="bg-babyblue overflow-hidden flex flex-col min-h-screen">
-    <header class=" text-blue-600">
+    <header class="text-blue-600">
         <div class="py-1 px-1 items-center justify-end">
-            <div class="mx-0 flex">
+            <div class="flex mx-0">
                 <partial name="_SidebarMenu" />
             </div> 
-				<div class="relative flex items-center mx-auto">
+				<div class="flex items-center mx-auto">
 				<a href="@Url.Action("Index", "Home")">
 					<h1 class="text-3xl font-bold">YumMe</h1>
 				  </a>
 				</div>
-            <div class="relative flex items-center mr-4">
+            <div class="flex items-center mr-4">
                 <partial name="_loginpartial" />
             </div>
         </div>
@@ -26,11 +26,11 @@
     <main role="main" class="pb-1">
         @RenderBody()
     </main>
-    <footer class="bg-black text-white py-4 mt-auto">
+    <footer class="footer bg-black text-white py-4 mt-auto">
         <div class="container mx-auto px-8">
             <div class="flex flex-wrap items-center justify-between">
-                <div class="flex items-center">
-                    <nav class="mr-4">
+                <div class="flex items-center w-full sm:w-auto">
+                    <nav class="mr-4 mb-4 sm:mb-0">
                         <ul class="flex">
                             <li class="mr-4"><a href="#">Home</a></li>
                             <li class="mr-4"><a href="#">About</a></li>
@@ -45,7 +45,7 @@
                     </nav>
                 </div>
                 <div>
-                    <span class="text-sm">&copy; 2023 YumMe. All rights reserved.</span>
+                    <span class="text-sm block sm:inline-block">&copy; 2023 YumMe. All rights reserved.</span>
                 </div>
             </div>
         </div>
