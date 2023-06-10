@@ -7,45 +7,28 @@
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
     <script src="~/js/site.js"></script>
 </head>
-<body class="bg-babyblue overflow-hidden flex flex-col min-h-screen">
-    <header class="text-blue-600">
+<body class="overflow-hidden flex flex-col min-h-screen bg-gradient-to-t from-slate-50 via-zinc-300 to-gray-300">
+	<header class="text-blue-600 "@* style="background-color: #0f172a;"*@>
         <div class="py-1 px-1 items-center justify-end">
             <div class="flex mx-0">
                 <partial name="_SidebarMenu" />
-            </div> 
-				<div class="flex items-center mx-auto">
-				<a href="@Url.Action("Index", "Home")">
-					<h1 class="text-3xl font-bold">YumMe</h1>
-				  </a>
-				</div>
-            <div class="flex items-center mr-4">
-                <partial name="_loginpartial" />
             </div>
+			<div class="flex items-center pb-1">
+				<a href="@Url.Action("Index", "Home")">
+					<h1 class="text-3xl font-bold px-4 text-black" style="text-shadow: 0px 2px 3px rgba(29, 24, 24, 0.72);">YumMe</h1>
+				</a>
+			</div>
         </div>
     </header>
     <main role="main" class="pb-1">
         @RenderBody()
     </main>
-    <footer class="footer bg-black text-white py-4 mt-auto">
-        <div class="container mx-auto px-8">
-            <div class="flex flex-wrap items-center justify-between">
-                <div class="flex items-center w-full sm:w-auto">
-                    <nav class="mr-4 mb-4 sm:mb-0">
-                        <ul class="flex">
-                            <li class="mr-4"><a href="#">Home</a></li>
-                            <li class="mr-4"><a href="#">About</a></li>
-                            <li class="mr-4"><a href="#">Services</a></li>
-                        </ul>
-                    </nav>
-                    <nav class="mr-4">
-                        <ul class="flex">
-                            <li class="mr-4"><a href="#">Privacy Policy</a></li>
-                            <li class="mr-4"><a href="#">FAQs</a></li>
-                        </ul>
-                    </nav>
-                </div>
+	<footer class="footer text-white py-4 mt-auto shadow-lg">
+        <div class="mx-auto px-8">
+            <div class="flex flex-wrap items-center justify-center mx-auto">
                 <div>
-                    <span class="text-sm block sm:inline-block">&copy; 2023 YumMe. All rights reserved.</span>
+                    <span class="text-sm text-black block sm:inline-block">&copy;  2023</span>
+
                 </div>
             </div>
         </div>
