@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using YumMe.Data;
 using YumMe.Models;
+using YumMe.Models.Domain;
 
 namespace YumMe.Controllers
 {
@@ -17,9 +18,15 @@ namespace YumMe.Controllers
         public IActionResult Index()
         {
             Random random = new Random();
-            var randomId = random.Next(1, 15);
-            var dish = context.Dishes
-                .FirstOrDefault(d => d.Id == randomId);
+            int randomId;
+            Dish dish = null;
+
+            do
+            {
+                randomId = random.Next(1, 100);
+                dish = context.Dishes.FirstOrDefault(d => d.Id == randomId);
+            } while (dish == null);
+
 
             var viewModel = new DishViewModel
             { 

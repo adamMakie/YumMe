@@ -1,33 +1,22 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿
+<nav class="items-center justify-between py-1 px-2">
 
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
-
-
-<nav class="flex items-center justify-between bg-babyblue py-1 px-2">
-    <div class="flex items-center">
-        <!-- Navbar items -->
-    </div>
-
-    <div class="flex items-center">
+    <div class="items-center">
         <div class="ml-4">
-            <ul class="list-none space-x-2">
+            <ul class="list-none">
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <li class="inline-block">
-                        <a class="nav-link text-cyan-400" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-                    </li>                  
-                }
+					<form class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-900 hover:bg-blue-700  rounded-xl" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+						<button type="submit">Logout</button>
+					</form>
+				}
                 else
                 {
-                    <ul class="list-none flex space-x-4 gap-4">
-                        <li>
-                            <a class="nav-link font-bold text-blue-900" asp-area="Identity" asp-page="/Account/Register"> Register</a>
-                        </li>
-                        <li>
-                            <a class="nav-link font-bold text-blue-900" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                        </li>
-                    </ul>
+           
+					<a class="block w-full mx-auto py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-900 hover:bg-blue-700  rounded-xl" asp-area="Identity" asp-page="/Account/Register"> Register</a>
+
+					<a class="block w-full mx-auto py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-900 hover:bg-blue-700  rounded-xl" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                   
                 }
             </ul>
         </div>

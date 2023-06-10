@@ -1,75 +1,68 @@
 @model DishViewModel
-@using Microsoft.AspNetCore.Identity
-
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
 
 
-
-<body class="overflow-hidden">
-    <section class="bg-gray-100 py-8 h-50 bg-cover bg-center" id="backgroundSection" style="background-image: url('@Model.FoodImage');">
-        <div class="container mx-auto px-6 h-screen flex flex-col items-center justify-center relative">
-            <div class="image-text bg-gray-900  text-center border  border-gray-300 shadow-md p-4 absolute bottom-60 mb-8">
-                <h2 class="text-2xl font-serif mb-4 text-center text-white">
-                    <em><span class="text-lg font-bold italic">@Model.Name</span></em>
-                </h2>
-                <p class="text-lg font-bold italic text-white">
-                    <em>@Model.Cuisine</em>
-                </p>
-            </div>
-
-            <div class="absolute bottom-20 mb-10">
-                <div class="mb-6">
-					@if (SignInManager.IsSignedIn(User))
-					{
-						<button type="button" onclick="location.reload();" class="px-6 py-4 bg-gray-900 text-white border border-gray-300 shadow-md">
-							New Suggestion
-						</button>
-					}
-					else
-					{
-						<button type="button" onclick="handleButtonClick()" class="px-6 py-4 bg-gray-900 text-white border border-gray-300 shadow-md">
-							New Suggestion 
-                            <div>
-                                <span id="clicksLeft"></span>
-                            </div>
-                            
-						</button>
-					}
-                </div>
-                <div class="mb-4">
-                    <a href="info/dishinfo/@Model.Id" class="px-10 py-4 bg-gray-900 text-white border border-gray-300 shadow-md no-underline">
-                        View Details
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<body class="bg-gray-200">
+	<div class="mt-10 left-0 right-0 transform -translate-y-1/2 flex items-center justify-center">
+		<span class="text-6xl text-black font-bold pt-5" style="text-shadow: 0px 2px 3px rgba(29, 24, 24, 0.72);">
+			@Model.Name
+		</span>
+	</div>
+	<div class="flex justify-center items-center">
+		<div class="relative border border-gray-200 ">
+			<div class="rounded overflow-hidden shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] bg-white">
+				<div class="">
+					<img class="h-[40rem] w-[60rem] object-cover" src="@Model.FoodImage" alt="Card Image">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class=" bottom-4 mt-8 left-0 right-0 flex justify-center">
+		<a href="info/dishinfo/@Model.Id" class="inline-block rounded bg-blue-900 px-8 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">
+			View Details
+		</a>
+		@if (SignInManager.IsSignedIn(User))
+		{
+			<button type="button" onclick="location.reload();" class="inline-block rounded bg-blue-900 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] ml-4">
+				New Suggestion
+			</button>
+		}
+		else
+		{
+			<button type="button" onclick="handleButtonClick()" class="inline-block rounded bg-blue-900 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] ml-4">
+				New Suggestion
+			</button>
+		}
+	</div>
 </body>
+
+
+
+
+
 <script>
 
-    function handleButtonClick() {
+	function handleButtonClick() {
 
-        if (localStorage.getItem('clickCount')) {
-            let clickCount = parseInt(localStorage.getItem('clickCount'));
-            if (clickCount < 3) {
-                clickCount++;
-                localStorage.setItem('clickCount', clickCount);
-                location.reload();
-            } else {
-                alert('You have reached the maximum limit of clicks.');
-            }
-        } else {
-            localStorage.setItem('clickCount', 1);
-            location.reload();
-        }
-    }
+		if (localStorage.getItem('clickCount')) {
+			let clickCount = parseInt(localStorage.getItem('clickCount'));
+			if (clickCount < 3) {
+				clickCount++;
+				localStorage.setItem('clickCount', clickCount);
+				location.reload();
+			} else {
+				alert('You have reached the maximum limit of clicks.');
+			}
+		} else {
+			localStorage.setItem('clickCount', 1);
+			location.reload();
+		}
+	}
 
-    function updateClicksLeft() {
-        let clickCount = parseInt(localStorage.getItem('clickCount')) || 0;
-        let clicksLeft = 3 - clickCount;
-        document.getElementById('clicksLeft').innerHTML = clicksLeft; 
-    } 
-        updateClicksLeft();
+	function updateClicksLeft() {
+		let clickCount = parseInt(localStorage.getItem('clickCount')) || 0;
+		let clicksLeft = 3 - clickCount;
+		document.getElementById('clicksLeft').innerHTML = clicksLeft;
+	}
+	updateClicksLeft();
 
 </script>
