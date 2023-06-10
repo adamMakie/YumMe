@@ -1,0 +1,30 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout != null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+
+<body class="bg-gray">
+    <div class="bg-gray ml-[5rem] mt-[2rem]">
+        <h1 class="text-3xl font-bold">Settings</h1>
+        <hr class="my-4" />
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/4">
+                <partial name="_ManageNav" />
+            </div>
+            <div class="w-full md:w-3/4">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

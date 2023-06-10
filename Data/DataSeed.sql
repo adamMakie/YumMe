@@ -14,7 +14,7 @@ VALUES
     ('Salmon Aspagrus', 'Swedish', 'images/Salmon.jpg', 'Non-Spicy'),
     ('Sashimi', 'Japanese', 'images/Sashimi.jpg', 'Non-Spicy'),
     ('Sea Food Pasta', 'Spanish', 'images/SeafoodPasta.jpg', 'Non-Spicy'),
-    ('Shrimp Pasta', 'Italian', 'images/shrimpPasta.jpg', 'Non-Spicy'),
+    ('Shrimp Pasta', 'Italian', 'images/shrimpPasta.jpg', 'Non-Spicy')
 
 
 -- Restaurants
