@@ -1,28 +1,38 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.View;
+using System.Security.Claims;
 using YumMe.Data;
 using YumMe.Models.Domain;
 
 namespace YumMe.Controllers;
 public class SettingsController : Controller
 {
-
     private readonly ApplicationDbContext context;
 
     public SettingsController(ApplicationDbContext context)
     {
+
         this.context = context;
     }
 
     [Authorize]
     public IActionResult Index()
     {
-        return View();
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var cuisines = context.Cuisines.ToList();
+
+        var excludedCuisineIds = context.UserExcludedCuisines
+            .Where(uec => uec.UserId == userId)
+            .Select(uec => uec.CuisineId)
+            .ToList();
+
+        var model = (Cuisines: cuisines, ExcludedCuisines: excludedCuisineIds);
+
+        return View(model);
     }
 
-    
+
+
     public IActionResult UpdateUserProfile(string id)
     {
         var user = context.Users.FirstOrDefault(u => u.Id == id);
@@ -39,4 +49,32 @@ public class SettingsController : Controller
 
         return RedirectToAction("index");
     }
+    [HttpPost]
+    public IActionResult ExcludedCuisines(List<int> excludedCuisines)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var userExcludedCuisines = context.UserExcludedCuisines
+            .Where(uec => uec.UserId == userId)
+            .Select(uec => uec.CuisineId)
+            .ToList();
+
+        // Clear the excluded cuisines for the user
+        context.UserExcludedCuisines.RemoveRange(context.UserExcludedCuisines.Where(uec => uec.UserId == userId));
+
+        foreach (var cuisineId in excludedCuisines)
+        {
+            var excludedCuisine = new UserExcludedCuisines
+            {
+                UserId = userId,
+                CuisineId = cuisineId
+            };
+
+            context.UserExcludedCuisines.Add(excludedCuisine);
+        }
+
+        context.SaveChanges();
+
+        return RedirectToAction("Index", "Home");
+    }
+
 }

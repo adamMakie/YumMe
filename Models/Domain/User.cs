@@ -10,5 +10,7 @@ public class User : IdentityUser
 
     public string Email { get; set; }
 
-    public string Phonenumber { get; set; }
+    public string PhoneNumber { get; set; }
+
+
 }
