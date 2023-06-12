@@ -1,0 +1,29 @@
+﻿@model (List<YumMe.Models.Domain.Cuisine> Cuisines, List<int> ExcludedCuisines)
+
+@{
+	ViewData["Title"] = "Filter Menu";
+}
+
+<div class="flex justify-center items-start h-screen">
+	<div class="bg-white shadow-md rounded-md p-6 max-w-sm">
+		<h1 class="text-2xl font-bold mb-4">Filter</h1>
+
+		<form method="post" action="/Settings/ExcludedCuisines" class="space-y-4">
+			<div class="grid grid-cols-2 gap-4">
+				@foreach (var cuisine in Model.Cuisines)
+				{
+					var isChecked = Model.ExcludedCuisines.Contains(cuisine.Id);
+					<button type="button" class="bg-gray-400 hover:bg-gray-500 text-black font-semibold py-2 px-4 rounded">
+						<input type="checkbox" id="cuisine_@cuisine.Id" name="excludedCuisines" value="@cuisine.Id" class="mr-2" @(isChecked ? "checked" : "")>
+						<label for="cuisine_@cuisine.Id">@cuisine.Name</label>
+					</button>
+				}
+			</div>
+
+			<button type="submit" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 mt-4 rounded">Save</button>
+		</form>
+	</div>
+</div>
+
+
+
