@@ -26,8 +26,8 @@ VALUES
     (7, 'Sushi Mix', 'images/Mix.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='2' )),
     (8, 'Phad Thai', 'images/PhadThai.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='5' )),
     (9, 'Pokebowl', 'images/Pokebowl.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='2' )),
-    (10, 'Shrimp With Rice', 'images/r‰kormedris.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='5' )),
-    (11, 'Salmon Asparagus', 'images/Salmon.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='1' )),
+    (10, 'Shrimp With Rice', 'images/r√§kormedris.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='5' )),
+    (11, 'Salmon Aspagrus', 'images/Salmon.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='1' )),
     (12, 'Sashimi', 'images/Sashimi.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='2' )),
     (13, 'Sea Food Pasta', 'images/SeafoodPasta.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='14' )),
     (14, 'Shrimp Pasta', 'images/shrimpPasta.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='14' ));
@@ -38,19 +38,18 @@ SET IDENTITY_INSERT YumMe.dbo.Dishes OFF;
 SET IDENTITY_INSERT YumMe.dbo.Restaurants ON
 INSERT INTO Restaurants (ID, Name, Description, Cuisine, Location, ImageUrl, DishId)
 VALUES
-    (1, 'Tasty Treats', 'A cozy restaurant offering a variety of delicious dishes.', 'Indian', 'New York', 'images/BiffTimjan', 1),
-    (2, 'Pasta Paradise', 'A trendy Italian restaurant specializing in pasta dishes.', 'Italian', 'London', 'images/Dragonroll.jpg', 2),
-    (3, 'Tokyo Delights', 'A popular Japanese restaurant known for its authentic sushi rolls.', 'Japanese', 'Tokyo', 'images/hamburgare.jpg', 3);
 
-SET IDENTITY_INSERT YumMe.dbo.Restaurants OFF
+    ('Biff Timjan', 'A cozy restaurant offering a variety of delicious dishes.', 'Indian', 'New York', 'images/BiffTimjan', 1),
+    ('Sushi Dragonroll', 'A trendy Italian restaurant specializing in pasta dishes.', 'Italian', 'London', 'images/Dragonroll.jpg', 2),
+    ('Humburger', 'A popular Japanese restaurant known for its authentic sushi rolls.', 'Japanese', 'Tokyo','images/hamburgare.jpg', 3);
 
 
 -- Recipes
 SET IDENTITY_INSERT YumMe.dbo.Recipes ON
 INSERT INTO Recipes (ID, PageUrl, Title, ImageUrl, DishId)
 VALUES
-    (1, 'Fake URL to Chicken Curry Recipe', 'Delicious Chicken Curry Recipe', 'images/indisk.jpg', 1),
-    (2, 'Fake URL to Spaghetti Bolognese Recipe', 'Classic Spaghetti Bolognese Recipe', 'images/SeafoodPasta.jpg', 2),
-    (3, 'Fake URL to Sushi Rolls Recipe', 'Make Sushi Rolls Recipe', 'images/Sashimi.jpg', 3);
 
-SET IDENTITY_INSERT YumMe.dbo.Recipes OFF
+    ('Fake URL to Chicken Curry Recipe', 'Delicious Chicken Curry','images/BiffTimjan', 1),
+    ('Fake URL to Spaghetti Bolognese Recipe', 'Classic Spaghetti Bolognese','images/Dragonroll.jpg', 2),
+    ('Fake URL to Sushi Rolls Recipe', 'Make Sushi Rolls at Home','images/hamburgare.jpg', 3);
+
