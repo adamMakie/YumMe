@@ -3,11 +3,11 @@
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
 
-<div class="">
-    <nav class="relative flex w-full items-center justify-between">
+<div>
+    <nav class="relative flex items-center justify-between">
         <ul class="list-style-none mr-auto flex flex-row pl-0">
-            <li class="my-4 mr-4"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
-            <li class="my-4 mr-4"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
+            <li class="my-4 mr-4"><button><a class="nav-link active @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></button></li>
+            <li class="my-4 mr-4"><button><a class="nav-link active @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></button></li>
             @if (hasExternalLogins)
             {
                 <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External logins</a></li>
@@ -15,3 +15,19 @@
         </ul>
     </nav>
 </div>
+
+
+@*<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let links = document.querySelectorAll('button');
+
+        links.forEach(link => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                links.forEach(link => link.classList.remove('bg-blue-600', 'text-white'));
+                this.classList.add('bg-blue-600', 'text-white');
+            });
+        });
+    });
+</script>*@
+
