@@ -20,13 +20,13 @@ VALUES
 -- Restaurants
 INSERT INTO Restaurants (Name, Description, Cuisine, Location, ImageUrl, DishId)
 VALUES
-    ('Tasty Treats', 'A cozy restaurant offering a variety of delicious dishes.', 'Indian', 'New York', 'images/BiffTimjan', 1),
-    ('Pasta Paradise', 'A trendy Italian restaurant specializing in pasta dishes.', 'Italian', 'London', 'images/Dragonroll.jpg', 2),
-    ('Tokyo Delights', 'A popular Japanese restaurant known for its authentic sushi rolls.', 'Japanese', 'Tokyo', 'images/hamburgare.jpg', 3);
+    ('Biff Timjan', 'A cozy restaurant offering a variety of delicious dishes.', 'Indian', 'New York', 'images/BiffTimjan', 1),
+    ('Sushi Dragonroll', 'A trendy Italian restaurant specializing in pasta dishes.', 'Italian', 'London', 'images/Dragonroll.jpg', 2),
+    ('Humburger', 'A popular Japanese restaurant known for its authentic sushi rolls.', 'Japanese', 'Tokyo','images/hamburgare.jpg', 3);
 
 -- Recipes
 INSERT INTO Recipes (PageUrl, Title, ImageUrl, DishId)
 VALUES
-    ('Fake URL to Chicken Curry Recipe', 'Delicious Chicken Curry Recipe', 'images/indisk.jpg', 1),
-    ('Fake URL to Spaghetti Bolognese Recipe', 'Classic Spaghetti Bolognese Recipe', 'images/SeafoodPasta.jpg', 2),
-    ('Fake URL to Sushi Rolls Recipe', 'Make Sushi Rolls at Home', 'images/Mix.jpg', 3);
+    ('Fake URL to Chicken Curry Recipe', 'Delicious Chicken Curry','images/BiffTimjan', 1),
+    ('Fake URL to Spaghetti Bolognese Recipe', 'Classic Spaghetti Bolognese','images/Dragonroll.jpg', 2),
+    ('Fake URL to Sushi Rolls Recipe', 'Make Sushi Rolls at Home','images/hamburgare.jpg', 3);
