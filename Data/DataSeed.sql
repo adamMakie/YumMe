@@ -1,3 +1,18 @@
+
+-- Cuisines
+SET IDENTITY_INSERT YumMe.dbo.Cuisines ON;
+INSERT INTO Cuisines (ID, DishID, Name)
+VALUES
+    (1, 1, 'Swedish'),
+    (2, 2, 'Japanese'),
+    (3, 3, 'American'),
+    (4, 4, 'Indian'),
+    (5, 5, 'Thai'),
+    (13, 13, 'Spanish'),
+    (14, 14, 'Italian');
+SET IDENTITY_INSERT YumMe.dbo.Cuisines OFF;
+
+
 -- Dishes
 SET IDENTITY_INSERT YumMe.dbo.Dishes ON;
 INSERT INTO Dishes (ID, Name, FoodImage, Spicy, CuisineId)
@@ -17,21 +32,6 @@ VALUES
     (13, 'Sea Food Pasta', 'images/SeafoodPasta.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='14' )),
     (14, 'Shrimp Pasta', 'images/shrimpPasta.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='14' ));
 SET IDENTITY_INSERT YumMe.dbo.Dishes OFF;
-
--- Cuisines
-SET IDENTITY_INSERT YumMe.dbo.Cuisines ON;
-INSERT INTO Cuisines (ID, DishID, Name)
-VALUES
-    (1, 1, 'Swedish'),
-    (2, 2, 'Japanese'),
-    (3, 3, 'American'),
-    (4, 4, 'Indian'),
-    (5, 5, 'Thai'),
-    (13, 13, 'Spanish'),
-    (14, 14, 'Italian');
-SET IDENTITY_INSERT YumMe.dbo.Cuisines OFF;
-
-
 
 
 -- Restaurants
