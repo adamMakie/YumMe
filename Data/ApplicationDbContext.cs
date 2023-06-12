@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 using YumMe.Models.Domain;
 
 namespace YumMe.Data
@@ -18,6 +19,11 @@ namespace YumMe.Data
 
         public DbSet<Recipe> Recipes { get; set; }
 
+        public DbSet<Cuisine> Cuisines { get; set; }
+
+        public DbSet<UserExcludedCuisines> UserExcludedCuisines { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -31,6 +37,33 @@ namespace YumMe.Data
                .HasMany(r => r.Recipes)
                .WithOne(d => d.Dish)
                .HasForeignKey(d => d.DishId);
+
+            builder.Entity<UserExcludedCuisines>()
+                .HasKey(u => new { u.UserId, u.CuisineId });
+
+            //builder.Entity<User>()
+            //.HasMany(u => u.ExcludedCuisines)
+            //.WithMany()
+            //.UsingEntity<Dictionary<string, object>>(
+            //    "UserExcludedCuisine",
+            //    j => j
+            //        .HasOne<Cuisine>()
+            //        .WithMany()
+            //        .HasForeignKey("CuisineId")
+            //        .HasConstraintName("FK_UserExcludedCuisine_Cuisine_CuisineId")
+            //        .OnDelete(DeleteBehavior.Cascade),
+            //    j => j
+            //        .HasOne<User>()
+            //        .WithMany()
+            //        .HasForeignKey("UserId")
+            //        .HasConstraintName("FK_UserExcludedCuisine_User_UserId")
+            //        .OnDelete(DeleteBehavior.Cascade),
+            //    j =>
+            //    {
+            //        j.HasKey("UserId", "CuisineId");
+            //        j.ToTable("UserExcludedCuisines");
+            //    }
+            //);
         }
     }
 }
