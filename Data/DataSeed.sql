@@ -1,3 +1,18 @@
+
+-- Cuisines
+SET IDENTITY_INSERT YumMe.dbo.Cuisines ON;
+INSERT INTO Cuisines (ID, DishID, Name)
+VALUES
+    (1, 1, 'Swedish'),
+    (2, 2, 'Japanese'),
+    (3, 3, 'American'),
+    (4, 4, 'Indian'),
+    (5, 5, 'Thai'),
+    (13, 13, 'Spanish'),
+    (14, 14, 'Italian');
+SET IDENTITY_INSERT YumMe.dbo.Cuisines OFF;
+
+
 -- Dishes
 SET IDENTITY_INSERT YumMe.dbo.Dishes ON;
 INSERT INTO Dishes (ID, Name, FoodImage, Spicy, CuisineId)
@@ -18,25 +33,12 @@ VALUES
     (14, 'Shrimp Pasta', 'images/shrimpPasta.jpg', 'Non-Spicy', (SELECT id from Cuisines WHERE Id='14' ));
 SET IDENTITY_INSERT YumMe.dbo.Dishes OFF;
 
--- Cuisines
-SET IDENTITY_INSERT YumMe.dbo.Cuisines ON;
-INSERT INTO Cuisines (ID, DishID, Name)
-VALUES
-    (1, 1, 'Swedish'),
-    (2, 2, 'Japanese'),
-    (3, 3, 'American'),
-    (4, 4, 'Indian'),
-    (5, 5, 'Thai'),
-    (13, 13, 'Spanish'),
-    (14, 14, 'Italian');
-SET IDENTITY_INSERT YumMe.dbo.Cuisines OFF;
 
 
 
 
 -- Restaurants
-SET IDENTITY_INSERT YumMe.dbo.Restaurants ON
-INSERT INTO Restaurants (ID, Name, Description, Cuisine, Location, ImageUrl, DishId)
+INSERT INTO Restaurants ( Name, Description, Cuisine, Location, ImageUrl, DishId)
 VALUES
 
     ('Biff Timjan', 'A cozy restaurant offering a variety of delicious dishes.', 'Indian', 'New York', 'images/BiffTimjan', 1),
@@ -45,8 +47,7 @@ VALUES
 
 
 -- Recipes
-SET IDENTITY_INSERT YumMe.dbo.Recipes ON
-INSERT INTO Recipes (ID, PageUrl, Title, ImageUrl, DishId)
+INSERT INTO Recipes ( PageUrl, Title, ImageUrl, DishId)
 VALUES
 
     ('Fake URL to Chicken Curry Recipe', 'Delicious Chicken Curry','images/BiffTimjan', 1),
