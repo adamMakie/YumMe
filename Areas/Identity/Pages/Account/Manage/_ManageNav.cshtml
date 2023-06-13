@@ -22,16 +22,27 @@
 
 </style>
 
-<div class="flex-col ">
-    <button id="profileButton" class=" text-b font-bold py-2 rounded my-6">
+<div class="flex-col lg:hidden">
+    <button id="profileButton" class=" text-b font-bold py-2 mr-6 rounded my-6">
         <a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a>
     </button>
-</div>
-
-<div class="flex-col">
     <button id="changePasswordButton" class=" text-black font-bold py-2 rounded">
         <a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a>
     </button>
+</div>
+
+<div class="hidden lg:block">
+	<div class="flex-col ">
+		<button id="profileButton" class=" text-b font-bold py-2 rounded my-6">
+			<a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a>
+		</button>
+	</div>
+
+	<div class="flex-col">
+		<button id="changePasswordButton" class=" text-black font-bold py-2 rounded">
+			<a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a>
+		</button>
+	</div>
 </div>
 
 
