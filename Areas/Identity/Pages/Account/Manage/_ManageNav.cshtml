@@ -3,19 +3,63 @@
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
 
-<div>
-    <nav class="relative flex items-center justify-between">
-        <ul class="list-style-none mr-auto flex flex-row pl-0">
-            <li class="my-4 mr-4"><button><a class="nav-link active @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></button></li>
-            <li class="my-4 mr-4"><button><a class="nav-link active @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></button></li>
-            @if (hasExternalLogins)
-            {
-                <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External logins</a></li>
-            }
-        </ul>
-    </nav>
+<style>
+
+    .active {
+        box-shadow: 0px 10px 14px -7px dodgerblue;
+        background: linear-gradient(to bottom, dodgerblue 100%);
+        background-color: dodgerblue;
+        border-radius: 8px;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 13px 32px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #283966;
+    }
+
+</style>
+
+<div class="flex-col ">
+    <button id="profileButton" class=" text-b font-bold py-2 rounded my-6">
+        <a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a>
+    </button>
 </div>
 
+<div class="flex-col">
+    <button id="changePasswordButton" class=" text-black font-bold py-2 rounded">
+        <a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a>
+    </button>
+</div>
+
+
+
+
+
+<script>
+
+    const profileButton = document.getElementById("profileButton");
+    const changePasswordButton = document.getElementById("changePasswordButton");
+
+
+
+    profileButton.addEventListener("click", () => {
+        profileButton.classList.toggle("active");
+        changePasswordButton.classList.remove("active");
+
+    });
+
+
+
+    changePasswordButton.addEventListener("click", () => {
+        changePasswordButton.classList.toggle("active");
+        profileButton.classList.remove("active");
+
+    });
+
+</script>
 
 @*<script>
     document.addEventListener('DOMContentLoaded', function () {

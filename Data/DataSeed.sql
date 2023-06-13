@@ -34,9 +34,9 @@ VALUES
 SET IDENTITY_INSERT YumMe.dbo.Dishes OFF;
 
 
+
 -- Restaurants
-SET IDENTITY_INSERT YumMe.dbo.Restaurants ON
-INSERT INTO Restaurants (ID, Name, Description, Cuisine, Location, ImageUrl, DishId)
+INSERT INTO Restaurants ( Name, Description, Cuisine, Location, ImageUrl, DishId)
 VALUES
 
     ('Biff Timjan', 'A cozy restaurant offering a variety of delicious dishes.', 'Indian', 'New York', 'images/BiffTimjan', 1),
@@ -45,8 +45,7 @@ VALUES
 
 
 -- Recipes
-SET IDENTITY_INSERT YumMe.dbo.Recipes ON
-INSERT INTO Recipes (ID, PageUrl, Title, ImageUrl, DishId)
+INSERT INTO Recipes ( PageUrl, Title, ImageUrl, DishId)
 VALUES
 
     ('Fake URL to Chicken Curry Recipe', 'Delicious Chicken Curry','images/BiffTimjan', 1),
