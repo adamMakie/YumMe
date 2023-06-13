@@ -35,8 +35,6 @@ SET IDENTITY_INSERT YumMe.dbo.Dishes OFF;
 
 
 
-
-
 -- Restaurants
 INSERT INTO Restaurants ( Name, Description, Cuisine, Location, ImageUrl, DishId)
 VALUES
