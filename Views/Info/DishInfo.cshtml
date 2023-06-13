@@ -1,46 +1,92 @@
 ﻿@model DishInfoViewModel
 
-
-<div class="flex">
-	<div class="flex-auto">
-		<h1 class="text-3xl text-center pt-5 font-bold">Restaurant</h1>
-	</div>
-	<div class="flex-auto">
-		<h1 class="text-3xl text-center pt-5 font-bold">Recipe</h1>
-	</div>
-</div>
-
-<div class="flex">
-	<div class="flex-auto w-1/2">
-		<div class="grid grid-cols-1 gap-5 px-20  pt-4">
-			@foreach (var restaurant in Model.Restaurants)
-			{
-                <a href="#" class="relative flex items-center justify-start bg-gray-100 rounded  shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] hover:bg-gray-200 w-full h-full">
-					<img src="@restaurant.ImageUrl" alt="Image 1" class="mr-1 h-40 w-60 object-cover rounded-l">
-					<div class="pl-6">
-						<span class="font-bold text-4xl">@restaurant.Name</span>
-						<span class="block text-gray-500 font-medium text-sm">@restaurant.Cuisine</span>
-						<span class="absolute bottom-1 right-2 text-white-500 pr-2 pb-1">¤ 0.2 km</span>
-					</div>
-				</a>
-			}
+<div class="hidden lg:block">
+	<div class="flex">
+		<div class="flex-auto">
+			<h1 class="text-1xl text-center pt-5 font-bold lg:text-3xl">Restaurant</h1>
+		</div>
+		<div class="flex-auto">
+			<h1 class="text-1xl text-center pt-5 font-bold lg:text-3xl">Recipe</h1>
 		</div>
 	</div>
-	<div class="flex-auto w-1/2">
-		<div class="flex-auto">
-			<div class="grid grid-cols-1 gap-5 px-20 pt-4">
-				@foreach (var recipe in Model.Recipes)
+
+	<div class="flex">
+		<div class="flex-auto w-1/2">
+			<div class="grid grid-cols-1 gap-5 px-20  pt-4">
+				@foreach (var restaurant in Model.Restaurants)
 				{
-                    <a href="#" class="flex items-center justify-start bg-gray-100 rounded  shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] hover:bg-gray-200 w-full">
-						<img src="@recipe.ImageUrl" alt="Image 1" class="mr-1 h-40 w-60 object-cover rounded-l">
+					<a href="#" class="relative flex items-center justify-start bg-gray-100 rounded  shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] hover:bg-gray-200 w-full h-full">
+						<img src="@restaurant.ImageUrl" alt="Image 1" class="mr-1 h-40 w-60 object-cover rounded-l">
 						<div class="pl-6">
-							<span class="font-bold text-4xl pr-2">@recipe.Title</span>
-							<span class="block text-gray-500 font-medium text-sm">Linked Site Name</span>
-							
+							<span class="text-1xl font-bold lg:text-4xl">@restaurant.Name</span>
+							<span class="block text-gray-500 font-medium text-sm">@restaurant.Cuisine</span>
+							<span class="absolute bottom-1 right-2 text-white-500 pr-2 pb-1">¤ 0.2 km</span>
 						</div>
 					</a>
 				}
 			</div>
 		</div>
+		<div class="flex-auto w-1/2">
+			<div class="flex-auto">
+				<div class="grid grid-cols-1 gap-5 px-20 pt-4">
+					@foreach (var recipe in Model.Recipes)
+					{
+						<a href="#" class="flex items-center justify-start bg-gray-100 rounded  shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] hover:bg-gray-200 w-full">
+							<img src="@recipe.ImageUrl" alt="Image 1" class="mr-1 h-40 w-60 object-cover rounded-l">
+							<div class="pl-6">
+								<span class="text-1xl font-bold lg:text-4xl">@recipe.Title</span>
+								<span class="block text-gray-500 font-medium text-sm">Linked Site Name</span>
+							
+							</div>
+						</a>
+					}
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
+
+
+<div class="lg:hidden">
+	<div style="height: 100vh; overflow-y: scroll;">
+		<div class="my-2">
+			<h1 class="text-1xl text-center pt-5 font-bold lg:text-3xl">Restaurant</h1>
+		</div>
+		<div class="flex flex-col">
+			<div class="w-full" style="max-height: 80vh; overflow-y: scroll;">
+				<div class="grid grid-cols-1 gap-5 px-4 pt-4">
+					@foreach (var restaurant in Model.Restaurants)
+					{
+						<a href="#" class="relative flex items-center justify-start bg-gray-100 rounded shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] hover:bg-gray-200 mb-4">
+							<img src="@restaurant.ImageUrl" alt="Image 1" class="mr-1 h-40 w-1/2 object-cover rounded-l">
+							<div class="pl-4 pr-2 py-1">
+								<span class="text-1xl font-bold lg:text-2xl">@restaurant.Name</span>
+								<span class="block text-gray-500 font-medium text-sm">@restaurant.Cuisine</span>
+								<span class="absolute bottom-1 right-2 text-white-500 pr-2 pb-1">¤ 0.2 km</span>
+							</div>
+						</a>
+					}
+				</div>
+			</div>
+			<div class="my-2">
+				<h1 class="text-1xl text-center pt-5 font-bold lg:text-3xl">Recipe</h1>
+			</div>
+			<div class="w-full" style="max-height: 80vh; overflow-y: scroll;">
+				<div class="grid grid-cols-1 gap-5 px-4 pt-4">
+					@foreach (var recipe in Model.Recipes)
+					{
+						<a href="#" class="flex items-center justify-start bg-gray-100 rounded shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] hover:bg-gray-200 mb-4">
+							<img src="@recipe.ImageUrl" alt="Image 1" class="mr-1 h-40 w-1/2 object-cover rounded-l">
+							<div class="pl-4 pr-2 py-1">
+								<span class="text-1xl font-bold lg:text-2xl">@recipe.Title</span>
+								<span class="block text-gray-500 font-medium text-sm">Linked Site Name</span>
+							</div>
+						</a>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
