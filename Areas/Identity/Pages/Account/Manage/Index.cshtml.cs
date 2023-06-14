@@ -29,8 +29,6 @@ namespace YumMe.Areas.Identity.Pages.Account.Manage
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        [BindProperty]
-        public string Username { get; set; }
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -59,6 +57,8 @@ namespace YumMe.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            public string UserName { get; set; }
         }
 
         private async Task LoadAsync(IdentityUser user)
@@ -66,11 +66,12 @@ namespace YumMe.Areas.Identity.Pages.Account.Manage
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
-            Username = userName;
+            //Username = userName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                UserName = userName
             };
         }
 
@@ -89,29 +90,31 @@ namespace YumMe.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnPostAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
 
-            if (!ModelState.IsValid)
+            
+            if (Input.PhoneNumber != user.PhoneNumber)
             {
-                await LoadAsync(user);
-                return Page();
-            }
+                user.PhoneNumber = Input.PhoneNumber;
+                var setPhoneResult = await _userManager.UpdateAsync(user);
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
                 if (!setPhoneResult.Succeeded)
                 {
                     StatusMessage = "Unexpected error when trying to set phone number.";
                     return RedirectToPage();
                 }
             }
-            
 
+            if (Input.UserName != user.UserName)
+            {
+                user.UserName = Input.UserName;
+                var setUserNameResult = await _userManager.UpdateAsync(user);
+
+                if (!setUserNameResult.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set Username.";
+                    return RedirectToPage();
+                }
+            }
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
@@ -119,3 +122,5 @@ namespace YumMe.Areas.Identity.Pages.Account.Manage
         }
     }
 }
+
+
