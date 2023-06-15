@@ -39,16 +39,16 @@ SET IDENTITY_INSERT YumMe.dbo.Dishes OFF;
 INSERT INTO Restaurants ( Name, Description, Cuisine, Location, ImageUrl, DishId)
 VALUES
 
-    ('Biff Timjan', 'A cozy restaurant offering a variety of delicious dishes.', 'Indian', 'New York', 'images/BiffTimjan', 1),
-    ('Sushi Dragonroll', 'A trendy Italian restaurant specializing in pasta dishes.', 'Italian', 'London', 'images/Dragonroll.jpg', 2),
-    ('Humburger', 'A popular Japanese restaurant known for its authentic sushi rolls.', 'Japanese', 'Tokyo','images/hamburgare.jpg', 3);
+    ('BIFF TIMJAN', 'A cozy restaurant offering a variety of delicious dishes.', 'American', 'New York', 'https://th.bing.com/th/id/OIP.KQBU1CWtvXGIQJRVZHbpWAHaE7?pid=ImgDet&rs=1', 1),
+    ('SUSHI DRAGONROLL', 'A popular Japanese restaurant known for its authentic sushi rolls.', 'Japanese', 'London', 'https://gastrogate.com/thumbs/2000/files/32542/img-0019.JPG', 2),
+    ('HUMBURGER', 'BEST BURGERS IN GOTHENBURG.', 'American', 'GOTHENBURG','https://thatsup.website/storage/190/9471/responsive-images/_DSF0173___media_library_original_1223_815.jpg', 3);
 
 
 -- Recipes
 INSERT INTO Recipes ( PageUrl, Title, ImageUrl, DishId)
 VALUES
 
-    ('Fake URL to Chicken Curry Recipe', 'Delicious Chicken Curry','images/BiffTimjan', 1),
-    ('Fake URL to Spaghetti Bolognese Recipe', 'Classic Spaghetti Bolognese','images/Dragonroll.jpg', 2),
-    ('Fake URL to Sushi Rolls Recipe', 'Make Sushi Rolls at Home','images/hamburgare.jpg', 3);
+    ('https://www.thespruceeats.com/tomahawk-rib-eye-steak-2313425', 'DELICIOUS BEEF TIMJAN STEAK','https://th.bing.com/th/id/OIP.KQBU1CWtvXGIQJRVZHbpWAHaE7?pid=ImgDet&rs=1', 1),
+    ('https://receptfavoriter.se/matartiklar/lyckas-med-hemgjord-sushi-maki-och-sashimi.html', 'ZUSHI SIGNATURE ROLL','https://gastrogate.com/thumbs/2000/files/32542/img-0019.JPG', 2),
+    ('https://bbqlovers.se/smashburgare-sa-har-gor-du/', 'SMASHED BURGERS','https://thatsup.website/storage/190/9471/responsive-images/_DSF0173___media_library_original_1223_815.jpg', 3);
 
